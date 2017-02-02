@@ -9,16 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<script src="js/mail-generator.js"></script>
-        <link href="css/style.css" rel="stylesheet" media="screen">
+
 
         <!-- Import my class for my Unread Messages -->
         <script src="js/custom.js"></script>
 
         <!-- Import BootStrap via CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+
+        <link href="css/style.css" rel="stylesheet" media="screen">
 
     <script>
       window.onload = function(){
@@ -36,25 +39,45 @@
 
 <body>
 
-    <div class="navbar navbar-default">
+    <nav class="navbar navbar-default">
         <div class="container">
 
             <div class="navbar-header">
-                 <a class="navbar-brand" href="#"> <img src="images/geemail.png" alt="geemail">  </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <div class="navbar-brand">
+                    <a class="navbar-left" href="#"> <img src="images/geemail.png" alt="geemail"> GeeMail </a>
+                 </div>
             </div>
-            <p class="navbar-text">GeeMail</p>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-center" align="center">
+                    <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Unread</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Contacts</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
-    </div>
+    </nav>
 
     <div class="container" id="main">
-        Build Me!
+
+        <div class="row" id="socialbar" align="center">
+
+                <a href="facebook.com"><i class="fa fa-facebook fa-2x"></i></a>
+                <a href="instagram.com"><i class="fa fa-instagram fa-2x"></i></a>
+                <a href="twitter.com"><i class="fa fa-twitter fa-2x"></i></a>
+                <a href="pinterest.com"><i class="fa fa-pinterest fa-2x"></i></a>
+                <a href="reddit.com"><i class="fa fa-reddit fa-2x"></i></a>
+
+        </div>
+
+        <script></script>
+
     </div>
 </body>
 
