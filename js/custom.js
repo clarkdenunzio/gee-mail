@@ -8,7 +8,7 @@ function newMessageDiv(message){
     var messageMarker = "marker"+messageID;
 
     var data = '<button class="btn btn-primary" onclick="markRead('+messageID+')" data-toggle="modal" data-target="#'+ messageID+'"> Date: ' + message.date
-    + '</button><button class="btn btn-info" id="'+messageMark+'" onclick="markRead('+messageID+')" data-toggle="modal" data-target="#'+ messageID+'">   Sender: ' + message.sender
+    + '</button><button class="btn btn-info" id="'+messageMark+'" value="0" onclick="markRead('+messageID+')" data-toggle="modal" data-target="#'+ messageID+'">   Sender: ' + message.sender
         + '</button><button class="btn btn-success" id="'+messageMarker+'" onclick="markRead('+messageID+')" data-toggle="modal" data-target="#'+ messageID+'">    Subject:  ' + message.subject + '</button>';
 
     var view = '<div class="modal fade" id="'+messageID+'" role="dialog">' +
@@ -25,23 +25,30 @@ function newMessageDiv(message){
 
     var newMessage = document.createElement("div");
     newMessage.className+="row checkbox";
-    newMessage.innerHTML = '<label><input type="checkbox" value=""></label>' + data + view;
+    newMessage.innerHTML = '<label><input type="checkbox" id="checker" value=""></label>' + data + view;
     return newMessage;
 
 }
 
 function markRead(marker){
 
+
+
     let loc = "mark"+marker;
     var x = document.getElementById(loc);
     x.className = "";
     x.className += "btn btn-warning";
+
+    if(x.value == 0){
+        unreadMessages--;
+        x.value++;
+        showUnread();}
+
     let loc1 = "marker"+marker;
     var x = document.getElementById(loc1);
     x.className = "";
     x.className += "btn btn-warning";
-    unreadMessages--;
-    showUnread();
+
 
 }
 
@@ -74,3 +81,13 @@ class Messages {
 
 }
 
+function deleteMessage(){
+
+    var myList = document.getElementsByClassName("checkbox");
+    console.log(myList);
+    console.log(myList[0].checked);
+    for(let box of myList){
+       if( box.hasOwnProperty('checked') ){ box.delete(); }
+    }
+
+}
