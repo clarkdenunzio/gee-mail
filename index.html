@@ -31,6 +31,7 @@
            let messages = new Messages( window.geemails );
            messages.show();
            showUnread();
+           setInterval(function(){ messages.getNew(); }, 30000);
 
       };
     </script>
@@ -58,9 +59,14 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-center" align="center">
-                    <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Unread</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Contacts</a></li>
+                    <li><a href="http://www.geemail.com"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Inbox</a></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Contacts</a>
+                     <ul class="dropdown-menu">
+                         <li>Coming Soon...</li>
+                     </ul>
+                    </li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -71,18 +77,18 @@
 
         <div class="row" id="socialbar" align="center">
 
-                <a href="facebook.com"><i class="fa fa-facebook fa-2x"></i></a>
-                <a href="instagram.com"><i class="fa fa-instagram fa-2x"></i></a>
-                <a href="twitter.com"><i class="fa fa-twitter fa-2x"></i></a>
-                <a href="pinterest.com"><i class="fa fa-pinterest fa-2x"></i></a>
-                <a href="reddit.com"><i class="fa fa-reddit fa-2x"></i></a>
+                <a href="https://facebook.com"><i class="fa fa-facebook fa-2x"></i></a>
+                <a href="https://instagram.com"><i class="fa fa-instagram fa-2x"></i></a>
+                <a href="https://twitter.com"><i class="fa fa-twitter fa-2x"></i></a>
+                <a href="https://pinterest.com"><i class="fa fa-pinterest fa-2x"></i></a>
+                <a href="https://reddit.com"><i class="fa fa-reddit fa-2x"></i></a>
 
         </div>
 
     </div>
 
     <hr>
-    <div class="row" id="toolbar">
+    <div class="row" id="toolbar" align="center">
 
         <button class="btn btn-default" id="selectAll">
             <i class="fa fa-square-o"></i>
@@ -100,9 +106,11 @@
           <i class="fa fa-trash-o"></i>
        </button>
 
-       <div class="col-md-2" id="unreadNo"></div>
+       <button class="btn btn-success" id="unreadNo"></button>
 
     </div>
+
+    <hr>
 
     <div class="container messageContainer" id="messageContainer"> </div>
 

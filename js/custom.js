@@ -5,10 +5,11 @@ function newMessageDiv(message){
 
     var messageID = Math.floor((Math.random() * 100) + 1);
     var messageMark = "mark"+messageID;
+    var messageMarker = "marker"+messageID;
 
     var data = '<button class="btn btn-primary" onclick="markRead('+messageID+')" data-toggle="modal" data-target="#'+ messageID+'"> Date: ' + message.date
     + '</button><button class="btn btn-info" id="'+messageMark+'" onclick="markRead('+messageID+')" data-toggle="modal" data-target="#'+ messageID+'">   Sender: ' + message.sender
-        + '</button><button class="btn btn-success" onclick="markRead('+messageID+')" data-toggle="modal" data-target="#'+ messageID+'">    Subject:  ' + message.subject + '</button>';
+        + '</button><button class="btn btn-success" id="'+messageMarker+'" onclick="markRead('+messageID+')" data-toggle="modal" data-target="#'+ messageID+'">    Subject:  ' + message.subject + '</button>';
 
     var view = '<div class="modal fade" id="'+messageID+'" role="dialog">' +
             '<div class="modal-dialog">' +
@@ -35,6 +36,10 @@ function markRead(marker){
     var x = document.getElementById(loc);
     x.className = "";
     x.className += "btn btn-warning";
+    let loc1 = "marker"+marker;
+    var x = document.getElementById(loc1);
+    x.className = "";
+    x.className += "btn btn-warning";
     unreadMessages--;
     showUnread();
 
@@ -42,7 +47,7 @@ function markRead(marker){
 
 function showUnread(){
     var y = document.getElementById("unreadNo");
-    y.innerHTML = unreadMessages;
+    y.innerHTML = "Unread Messages: " + unreadMessages;
 }
 
 class Messages {
@@ -57,6 +62,14 @@ class Messages {
             $(".messageContainer").append(newMessageDiv(message));
             unreadMessages++;
         }
+    }
+
+    getNew(){
+        var inc =getNewMessage();
+        this.mail.push(inc);
+        $(".messageContainer").prepend(newMessageDiv(inc));
+        unreadMessages++;
+        showUnread();
     }
 
 }
