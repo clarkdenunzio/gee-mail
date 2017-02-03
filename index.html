@@ -28,7 +28,9 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 
-           var unreadMessages = new UnreadMessages( window.geemails );
+           let messages = new Messages( window.geemails );
+           messages.show();
+           showUnread();
 
       };
     </script>
@@ -82,31 +84,27 @@
     <hr>
     <div class="row" id="toolbar">
 
-        <button class="btn btn-default" data-behavior="selectAll">
+        <button class="btn btn-default" id="selectAll">
             <i class="fa fa-square-o"></i>
         </button>
 
-      <button class="btn btn-warning" data-behavior="markAsRead" disabled data-disableable>
+      <button class="btn btn-warning" id="markAsRead">
           Mark As Read
       </button>
 
-       <button class="btn btn-info" data-behavior="markAsUnread" disabled data-disableable>
+       <button class="btn btn-info" id="markAsUnread">
             Mark As Unread
        </button>
 
-       <button class="btn btn-danger" data-behavior="deleteMessage" disabled data-disableable>
+       <button class="btn btn-danger" id="deleteMessage">
           <i class="fa fa-trash-o"></i>
        </button>
 
-       <div class="col-md-2" data-container="unreadNo"></div>
+       <div class="col-md-2" id="unreadNo"></div>
 
     </div>
 
-    <div>
-
-
-
-    </div>
+    <div class="container messageContainer" id="messageContainer"> </div>
 
 
 </body>
